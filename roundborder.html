@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="comp">
+        <div class="borderBox">
+            <span class="border top-left"></span>
+            <span class="border top-right"></span>
+            <span class="border bottom-left"></span>
+            <span class="border bottom-right"></span>
+        </div>
+        <div class="content">
+            <!-- 内容 -->
+        </div>
+    </div>
+</body>
+<style>
+    .comp {
+        position: relative;
+        width: 200px;
+        height: 200px;
+    }
+    
+    .borderBox {
+        width: 200px;
+        height: 100%;
+        position: absolute;
+    }
+    
+    .content {
+        width: calc(100% - 2px);
+        height: calc(100% - 2px);
+        background: (0, 0, 0, 0.06);
+        border: 1px solid #22afdd;
+        border-image: linear-gradient(0deg, #22afdd 0%, #000105 74%, #22afdd 100%) 10 10;
+        clip-path: inset(0 round 16px);
+        z-index: 0;
+    }
+    
+    .border {
+        width: 0;
+        height: 0;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        z-index: 1;
+    }
+    
+    .top-left {
+        border-top: 1px solid #22afdd;
+        border-left: 1px solid #22afdd;
+        border-top-left-radius: 100%;
+    }
+    
+    .top-right {
+        border-top: 1px solid #22afdd;
+        border-right: 1px solid #22afdd;
+        border-top-right-radius: 100%;
+        right: 0;
+    }
+    
+    .bottom-left {
+        border-bottom: 1px solid #22afdd;
+        border-left: 1px solid #22afdd;
+        border-bottom-left-radius: 100%;
+        bottom: 0;
+    }
+    
+    .bottom-right {
+        border-bottom: 1px solid #22afdd;
+        border-right: 1px solid #22afdd;
+        border-bottom-right-radius: 100%;
+        bottom: 0;
+        right: 0;
+    }
+    /* 发光条 */
+    
+    .comp::before {
+        content: "";
+        position: absolute;
+        height: 4px;
+        width: calc(100% - 40px);
+        left: 20px;
+        top: -2px;
+        z-index: 1;
+        box-shadow: 0px 0px 10px 0px #45d0ff;
+        border-radius: 50%;
+        background-image: linear-gradient( to right, rgba(69, 209, 255, 0), rgba(69, 209, 255, 1), rgba(69, 209, 255, 0));
+    }
+</style>
+
+</html>

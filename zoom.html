@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoom</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            display: block;
+            box-sizing: inherit;
+            background-color: #D9D1CC;
+        }
+        /* .color {
+            background-color: rgba(238, 130, 238, 0.5);
+            width: 100%;
+            height: 100%;
+        } */
+        
+        .bg {
+            position: absolute;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            box-sizing: inherit;
+            display: block;
+            background-image: url('../images/背景@2x.png');
+            background-repeat: no-repeat;
+            background-color: rgb(0, 0, 0);
+            ;
+            transform: translate(-50%, -50%);
+            /* top: 50%;
+            left: 50%; */
+            transform-origin: 0px 0px;
+            cursor: default;
+            z-index: 0;
+            background-repeat: no-repeat;
+            background-color: rgb(0, 0, 0);
+            min-width: auto;
+            width: 3840px;
+            min-height: auto;
+            height: 2160px;
+            transform: scale(0.424537) translate(-50%, -50%);
+            transform-origin: 0px 0px;
+        }
+        
+        .main {
+            position: absolute;
+            width: 1920px;
+            height: 1080px;
+            background: pink;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            /*margin-left:-350px;
+        margin-top:-250px;*/
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div class="main"></div>
+
+</body>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.js"></script>
+<script type="text/javascript">
+    $(function() {
+        var r = document.body.offsetWidth / window.screen.availWidth * 0.5;
+        r = r > 0.5 ? 0.5 : r;
+        $(".bg").css("-webkit-transform", "scale(" + r + ")");
+    });
+    $(window).resize(function() {
+        var r = document.body.offsetWidth / window.screen.availWidth * 0.5;
+        r = r > 0.5 ? 0.5 : r;
+        $(".bg").css("-webkit-transform", "scale(" + r + ")");
+    });
+    // $(function() {
+    //     var r = document.body.offsetWidth / window.screen.availWidth;
+    //     r = r > 1 ? 1 : r;
+    //     $(".bg").css("-webkit-transform", "scale(" + r + ")");
+    // });
+    // $(window).resize(function() {
+    //     var r = document.body.offsetWidth / window.screen.availWidth;
+    //     r = r > 1 ? 1 : r;
+    //     $(".bg").css("-webkit-transform", "scale(" + r + ")");
+    // });
+</script>
+
+</html>

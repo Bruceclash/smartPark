@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Security</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.1.2/dist/echarts.min.js"></script>
+    <script src="http://cdn.staticfile.org/moment.js/2.24.0/moment-with-locales.js"></script>
+
+    <link rel="stylesheet" href="style/template_security.css">
+    <link rel="stylesheet" href="style/font.css">
+</head>
+
+<body>
+    <div class="header">
+
+        <span class="back">→返回首页</span>
+        <span class="showTime"></span>
+    </div>
+    <div class="h-container">
+        <div class="h-middle">
+            <!-- <div class="midtop">
+
+            </div> -->
+
+        </div>
+        <div class="h-left">
+            <ul class="l-left">
+                <li class="item-1">
+                    <div class="title"></div>
+                </li>
+                <li class="item-2">
+                    <div class="title"></div>
+                </li>
+                <li class="item-3" id='half'>
+                    <div class="title"></div>
+                </li>
+                <li class="item-4" id='half'>
+                    <div class="title"></div>
+                </li>
+                <li class="item-5">
+                    <div class="title"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="h-right">
+            <ul class="l-right">
+
+                <li class="item-6">
+                    <div class="title">
+
+                    </div>
+                </li>
+                <li class="item-7">
+                    <div class="title">
+
+                    </div>
+                </li>
+                <li class="item-8">
+                    <div class="title">
+
+                    </div>
+                </li>
+                <li class="item-9" id='half'>
+                    <div class="title">
+
+                    </div>
+                </li>
+
+                <li class="item-10" id='half'>
+                    <div class="title">
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="midnav">
+        <img src="../images/底部导航.png" alt="导航栏">
+    </div>
+
+</body>
+<script>
+    moment.locale('zh-cn');
+
+
+
+    // document.querySelector(".showTime").innerHTML = moment().format('YYYY-MM-DD') + moment().format('hh:mm:ss') + moment().format('dddd');
+
+
+    window.onload = function() {
+        var span = document.querySelector('.showTime');
+        var dateStr = formatDate();
+        // 将时间放置到span内
+        // span.innerText = dateStr;
+        span.innerHTML = dateStr;
+        // 每隔一秒，再放置一次最新的时间
+        setInterval(function() {
+            // span.innerText = formatDate();
+            span.innerHTML = formatDate();
+        }, 1000);
+        //格式化年月日时分秒 
+        function formatDate() {
+            var date = new Date();
+            var week = getWeek(date);
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            month = month < 10 ? '0' + month : month;
+            var day = date.getDate();
+            day = day < 10 ? '0' + day : day;
+            var hours = date.getHours();
+            hours = hours < 10 ? '0' + hours : hours;
+            var minutes = date.getMinutes();
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            var seconds = date.getSeconds();
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+            // 2019-07-23 09:40:30
+            return year + '-' + month + '-' + day + '\xa0\xa0\xa0\xa0\xa0\xa0' + hours + ':' + minutes + ':' + seconds + '\xa0\xa0\xa0\xa0\xa0' + week;
+        }
+
+        function getWeek(d) {
+            var weekday = new Array(7)
+            weekday[0] = "星期日"
+            weekday[1] = "星期一"
+            weekday[2] = "星期二"
+            weekday[3] = "星期三"
+            weekday[4] = "星期四"
+            weekday[5] = "星期五"
+            weekday[6] = "星期六"
+
+            return weekday[d.getDay()];
+        }
+
+    }
+</script>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holy Grail</title>
+    <style>
+        .k-container {
+            /* overflow: hidden; */
+            position: relative;
+            height: 100vh;
+            padding: 0 200px;
+            min-width: 400px;
+        }
+        
+        .k-container>div {
+            height: 100vh;
+            float: left;
+            text-align: center;
+            color: #fff;
+            line-height: 100vh;
+            font-size: 3vw;
+        }
+        
+        .k-middle {
+            position: relative;
+            width: 100%;
+            background: #cc6630;
+        }
+        
+        .k-left {
+            position: relative;
+            width: 200px;
+            background: #ffcc00;
+            margin-left: -100%;
+            left: -200px;
+        }
+        
+        .k-right {
+            position: relative;
+            width: 200px;
+            background: pink;
+            margin-left: -200px;
+            right: -200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="k-container">
+        <div class="k-middle">middle</div>
+        <div class="k-left">left</div>
+        <div class="k-right">right</div>
+    </div>
+</body>
+
+</html>

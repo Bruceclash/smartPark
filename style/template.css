@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('../images/背景.png');
+    /* background-image: url('../images/bg-park.png'); */
+    height: 1080px;
+}
+
+.header {
+    width: 1920px;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.22);
+    text-align: center;
+    color: #fff;
+}
+
+.h-container {
+    position: relative;
+    margin: 0px 40px 60px 40px;
+    height: 920px;
+    min-width: 400px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.h-container>div {
+    height: 920px;
+    text-align: center;
+    color: #fff;
+    line-height: 920px;
+    font-size: 3vw;
+}
+
+.h-middle {
+    /* position: relative; */
+    order: 2;
+    flex: auto 1 0;
+    background: #cc673017;
+}
+
+.midnav {
+    position: fixed;
+    bottom: 0;
+    left: 708px;
+    height: 210px;
+    width: 504px;
+    /* border-radius: 280px 280px 0 0; */
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.midnav>img {
+    margin-left: -218px;
+}
+
+.midtop {
+    margin: 30px auto;
+    width: 620px;
+    height: 80px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid;
+    border-image: linear-gradient(0deg, #98F505, #000000, #98F505) 10 10;
+    border-radius: 8px;
+    /* clip-path: inset(1px round 1px); */
+}
+
+.h-left {
+    order: 1;
+    flex: 500px 0 0;
+    background: rgba(255, 255, 0, 0.5);
+}
+
+.h-left>ul>li {
+    list-style: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 500px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.h-left>ul>li>.title {
+    height: 40px;
+    /* background-color: rgba(129, 238, 5, 0.5); */
+    background-image: url('../images/草地-底纹.png');
+    color: #fff;
+    border-radius: 8px 8px 0 0;
+    line-height: 40px;
+}
+
+.item-1 {
+    height: 110px;
+    margin-top: 0;
+}
+
+.item-2 {
+    height: 241px;
+}
+
+.item-3 {
+    height: 273px;
+}
+
+.item-4 {
+    height: 273px;
+}
+
+.h-right {
+    order: 3;
+    flex: 500px 0 0;
+    background: rgba(255, 192, 203, 0.5);
+}
+
+.h-right>ul>li {
+    list-style: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 500px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.h-right>ul>li>.title {
+    height: 40px;
+    /* background-color: rgba(129, 238, 5, 0.5); */
+    background-image: url('../images/草地-底纹.png');
+    color: #fff;
+    border-radius: 8px 8px 0 0;
+    line-height: 40px;
+}
+
+.item-5 {
+    margin-top: 0;
+    height: 110px;
+}
+
+.item-6 {
+    height: 174px;
+}
+
+.item-7 {
+    height: 174px;
+}
+
+.item-8 {
+    height: 215px;
+}
+
+.item-9 {
+    height: 215px;
+}

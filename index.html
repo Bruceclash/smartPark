@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.1.2/dist/echarts.min.js"></script>
+
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/font.css">
+</head>
+
+<body>
+    <div class="header">
+        <img src="images\组 8.png" alt="智慧公园驾驶舱">
+    </div>
+
+
+
+
+    <!-- <div class="box-container"> -->
+    <div class="box-left">
+        <div class="box-1">
+            <div class="title">
+                <span>基本信息</span>
+            </div>
+        </div>
+        <div class="box-2">
+            <div class="title">
+                <span>游客统计</span>
+            </div>
+        </div>
+        <div class="box-3">
+            <div class="title">
+                <span>运营支出</span>
+            </div>
+        </div>
+        <div class="box-4">
+            <div class="title">
+                <span>票务统计</span>
+            </div>
+            <div class="chart1">
+
+            </div>
+        </div>
+    </div>
+    <div class="box-middle">
+        middle
+    </div>
+
+
+    <div class="box-right">
+        <div class="box-5">
+            <div class="title">
+                <span>信息公告</span>
+            </div>
+
+        </div>
+        <div class="box-6">
+            <div class="title">
+                <span>环境检测</span>
+            </div>
+        </div>
+        <div class="box-7">
+            <div class="title">
+                <span>车位管理</span>
+            </div>
+        </div>
+        <div class="box-8">
+            <div class="title">
+                <span>人员管理</span>
+            </div>
+        </div>
+        <div class="box-9">
+            <div class="title">
+                <span>问题投诉</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu">
+        全屏切换
+    </div>
+
+    <!-- </div> -->
+    <!-- <div class="menu">全屏切换</div> -->
+</body>
+<script>
+    var mCharts = echarts.init(document.querySelector('.chart1'))
+
+    var option = {
+        color: ["#98F505",
+            '#FDA900'
+        ],
+        title: {
+
+            text: '单位:万张', //标题的名称
+
+            top: 11, //上端的距离
+
+            left: 434, //左边的距离
+
+            textStyle: {
+
+                fontStyle: 'normal', //字体样式
+
+                fontWeight: '100', //加粗效果（不加粗）
+
+                align: 'right', //显示的位置
+
+                fontSize: 10, //字体大小
+
+                color: '#B9B7B6' //字体颜色
+
+            }
+
+        },
+        grid: {
+            left: "9%",
+            bottom: "17%",
+            width: "88%",
+            height: "60%"
+        },
+        legend: [{
+            data: ['预定'],
+            textStyle: {
+                color: "#fff",
+                fontSize: 9.5
+            },
+            itemStyle: {
+                color: '#FDA900',
+            },
+            itemHeight: 6,
+            itemWidth: 12,
+            left: "62.5%",
+            top: "5%"
+        }, {
+            data: ['已售'],
+            textStyle: {
+                color: "#fff",
+                fontSize: 9.5
+            },
+            itemStyle: {
+                color: '#98F505',
+            },
+            itemHeight: 6,
+            itemWidth: 12,
+            left: "72%",
+            top: "5%"
+        }],
+        xAxis: {
+            type: 'category',
+            data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+
+            axisLabel: {
+                //   fontWeight: "bold",
+                fontSize: 9,
+                color: "#B9B7B6"
+            },
+            axisLine: {
+                lineStyle: {
+                    color: "#FFF"
+                }
+            },
+            axisTick: {
+                show: false
+            }
+        },
+        yAxis: {
+            type: 'value',
+            interval: 15,
+            axisLabel: {
+                //   fontWeight: "bold",
+                fontSize: 9,
+                color: "#B9B7B6",
+                margin: 14
+            },
+            splitLine: {
+                lineStyle: {
+                    type: "dashed",
+                    color: ['#B9B7B6']
+                }
+            }
+        },
+        series: [{
+                name: '已售',
+                type: 'bar',
+                data: [31, 37, 31, 45, 63, 56, 60, 64, 60, 70, 45, 33],
+                barWidth: 8,
+                // barGap: "20%",
+                barCategoryGap: "35%",
+                itemStyle: {
+
+                    // color: '#98F505',
+                    color: new echarts.graphic.LinearGradient(
+                        //前四个参数用于配置渐变色的起止位置，这四个参数依次对应 右下左上 四个方位。也就是从右边开始顺时针方向。
+                        //通过修改前4个参数，可以实现不同的渐变方向
+                        /*第五个参数则是一个数组，用于配置颜色的渐变过程。
+                          每项为一个对象，包含offset和color两个参数
+                        */
+                        0, 0, 0, 1, [{ //代表渐变色从正上方开始
+                                offset: 1, //offset范围是0~1，用于表示位置，0是指0%处的颜色
+                                color: 'rgba(0,0,0,0)'
+                            }, //柱图渐变色
+                            {
+                                offset: 0, //指100%处的颜色
+                                color: '#98F505'
+                            }
+                        ]
+                    ),
+
+                    // barBorderColor: '#fff', // 柱条边线
+                    barBorderRadius: [5, 5, 0, 0], // 柱条边线圆角，单位px，默认为0
+                    barBorderWidth: 1, // 柱条边线线宽，单位px，默认为1
+                    // opacity: 0.7
+                }
+
+            }, {
+                name: '预定',
+                type: 'bar',
+                data: [35, 41, 33, 48, 66, 57, 63, 66, 62, 74, 49, 36],
+                barWidth: 8,
+                // barGap: "80%",
+                barCategoryGap: "35%",
+                itemStyle: {
+
+                    // color: '#FDA900',
+                    color: new echarts.graphic.LinearGradient(
+                        //前四个参数用于配置渐变色的起止位置，这四个参数依次对应 右下左上 四个方位。也就是从右边开始顺时针方向。
+                        //通过修改前4个参数，可以实现不同的渐变方向
+                        /*第五个参数则是一个数组，用于配置颜色的渐变过程。
+                          每项为一个对象，包含offset和color两个参数
+                        */
+                        0, 0, 0, 1, [{ //代表渐变色从正上方开始
+                                offset: 1, //offset范围是0~1，用于表示位置，0是指0%处的颜色
+                                color: 'rgba(0,0,0,0)'
+                            }, //柱图渐变色
+                            {
+                                offset: 0, //指100%处的颜色
+                                color: '#FDA900'
+                            }
+                        ]
+                    ),
+
+                    // barBorderColor: '#fff', // 柱条边线
+                    barBorderRadius: [5, 5, 0, 0], // 柱条边线圆角，单位px，默认为0
+                    barBorderWidth: 1, // 柱条边线线宽，单位px，默认为1
+                    // opacity: 0.7
+                }
+            }
+
+        ]
+
+
+    }
+
+    mCharts.setOption(option)
+</script>
+
+</html>
